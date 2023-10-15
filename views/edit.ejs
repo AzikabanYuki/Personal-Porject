@@ -44,17 +44,28 @@
     </div>
 </nav>
 
-<div class="container-fluid">
-    <span class="badge text-bg-light ms-5">
-        <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item VolunteerPage"><a href="/" style="text-decoration: none">Home</a></li>
-                <li class="breadcrumb-item VolunteerPage"><a href="/event" style="text-decoration: none">Event</a></li>
-
-                <li class="breadcrumb-item VolunteerPage active" aria-current="page">New Event</li>
-            </ol>
-        </nav>
-    </span>
+<div class="container">
+    <div class="row">
+        <div class="d-flex justify-content-between">
+            <div class="col-5">
+                <span class="badge text-bg-light ms-5">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item VolunteerPage"><a href="/" style="text-decoration: none">Home</a></li>
+                            <li class="breadcrumb-item VolunteerPage"><a href="/event" style="text-decoration: none">Event</a></li>
+                            <li class="breadcrumb-item VolunteerPage active" aria-current="page">New Event</li>
+                        </ol>
+                    </nav>
+                </span>
+            </div>
+            <div class="col-2 mt-3">
+                <form action="/event/delete_event/<%= information._id %>" method="post">
+                    <button type="submit" class="btn btn-danger" style="margin-right: 5px">Delete
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
     <form action="/event/edit/<%= information._id %>" method="POST">
         <div class="row">
             <div class="col-5 ms-5">

@@ -179,6 +179,21 @@ router.post('/event/edit/:id', async function (req, res) {
         await db.client.close();
     }
 });
+router.post('/event/delete_event/:id', async function (req, res) {
+    const db = await connectToDB();
+    try {
+        let result = await db.collection("events").deleteOne({_id: new ObjectId(req.params.id)});
+        if (result) {
+            res.render('ToHome', {text: "Event deleted successfully"});
+        } else {
+            res.render('ToHome', {text: "Event delete failed"});
+        }
+    } catch (err) {
+        res.status(400).json({message: err.message});
+    } finally {
+        await db.client.close();
+    }
+});
 ////////////////////////////////////////////////////////
 
 

@@ -60,21 +60,23 @@
             <div class="col-5 ms-5">
                 <div class="mb-4">
                     <label for="event_title" class="form-label">Event title</label>
-                    <input type="text" class="form-control" name="Title" id="event_title" maxlength="25" required>
+                    <input type="text" class="form-control" name="Title" id="event_title" maxlength="25"
+                           style="border-width: 2px" required>
                 </div>
                 <div class="mb-4">
                     <label for="organizer" class="form-label">Organizer</label>
-                    <input type="text" class="form-control" name="Organizer" id="organizer" required>
+                    <input type="text" class="form-control" name="Organizer" id="organizer" style="border-width: 2px"
+                           required>
                 </div>
                 <div class="mb-4">
                     <label for="datetime" class="form-label">Datetime</label>
                     <input type="text" class="form-control" id="datetime" name="Datetime"
-                           placeholder="06/12/2024, 13:00" required>
+                           placeholder="06/12/2024, 13:00" style="border-width: 2px" required>
                 </div>
                 <div class="mb-4">
                     <label for="location" class="form-label">Location</label>
                     <input type="text" class="form-control" id="location" name="Location"
-                           placeholder="Apartment, studio or floor" required>
+                           placeholder="Apartment, studio or floor" style="border-width: 2px" required>
                 </div>
 
                 <div class="mb-4">
@@ -86,16 +88,18 @@
             <div class="col-5">
                 <div class="mb-4">
                     <label for="description" class="form-label">Description</label>
-                    <textarea class="form-control" id="description" rows="5" name="Description"></textarea>
+                    <textarea class="form-control" id="description" rows="5" name="Description"
+                              style="border-width: 2px"></textarea>
                 </div>
                 <div class="mb-4">
                     <label for="quota" class="form-label">Quota</label>
-                    <input type="number" class="form-control" id="quota" name="Quota" placeholder="10" required>
+                    <input type="number" class="form-control" id="quota" name="Quota" placeholder="10"
+                           style="border-width: 2px" required>
                 </div>
                 <div class="mb-4">
                     <label for="image" class="form-label">Image</label>
                     <input type="url" class="form-control" id="image" name="Image"
-                           placeholder="http://image.com/example.png">
+                           placeholder="http://image.com/example.png" style="border-width: 2px">
                 </div>
                 <button type="submit" class="btn btn-primary" style="float: right;" id="save">Save</button>
             </div>

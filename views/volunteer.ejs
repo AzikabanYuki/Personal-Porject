@@ -16,6 +16,7 @@
             margin-top: 1rem;
         }
 
+
     </style>
 
 </head>
@@ -50,7 +51,7 @@
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item VolunteerPage"><a href="/">Home</a></li>
-                        <li class="breadcrumb-item VolunteerPage active" aria-current="page">Become volunteer</li>
+                        <li class="breadcrumb-item VolunteerPage active" aria-current="page">Become volunteer!</li>
                     </ol>
                 </nav>
             </span>
@@ -80,12 +81,13 @@
                 </div>
                 <div class="mb-4">
                     <label for="age">Age group</label>
-                    <select class="form-select" name="Age" id="age" style="border-width: 2px">
-                        <option value="not selected" selected>Dropdown...</option>
-                        <option value="18-24">18-24</option>
-                        <option value="25-34">25-34</option>
-                        <option value="35-45">35-45</option>
-                        <option value="Over 45">Over 45</option>
+                    <select class="form-select" name="Age" id="age" style="color: rgb(128,128,128); border-width: 2px"
+                            onchange="Check(this.value)">
+                        <option value="not selected" style="color:rgb(128,128,128);" selected>Dropdown...</option>
+                        <option value="18-24" style="color: black">18-24</option>
+                        <option value="25-34" style="color: black">25-34</option>
+                        <option value="35-45" style="color: black">35-45</option>
+                        <option value="Over 45" style="color: black">Over 45</option>
                     </select>
                 </div>
                 <div class="mb-4">
@@ -94,8 +96,10 @@
                               style="border-width: 2px"></textarea>
                 </div>
                 <div class="mb-4">
-                    <input type="checkbox" class="form-check-input" id="agree" name="terms">
-                    <label class="form-check-label Checkbox" for="agree">agree to terms and conditions</label>
+                    <input type="checkbox" class="form-check-input" id="agree" name="terms"
+                           style="border-width: thin;  border-color: black;background-color: lightgray">
+                    <label class="form-check-label Checkbox" for="agree" style="color: rgb(128,128,128);">agree to terms
+                        and conditions</label>
                 </div>
 
                 <button type="submit" class="btn btn-primary">Register</button>
@@ -127,4 +131,12 @@
             event.preventDefault(); // Prevent form submission
         }
     };
+
+    function Check(value) {
+        if (value === "not selected") {
+            document.getElementById("age").style.color = "gray";
+        } else {
+            document.getElementById("age").style.color = "black";
+        }
+    }
 </script>

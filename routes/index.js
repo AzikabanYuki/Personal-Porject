@@ -145,7 +145,7 @@ router.get('/event/edit/:id', async function (req, res) {
     const db = await connectToDB();
     try {
         let result = await db.collection("events").findOne({_id: new ObjectId(req.params.id)});
-        console.log(result.Title);
+        console.log(result.Highlight);
         if (result) {
             res.render('edit', {information: result});
         } else {

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirect To Home</title>
+    <script>
+        // Display an alert message when the page is loaded
+        window.onload = function () {
+            alert("<%= text %>");
+            // Redirect the user to another page after displaying the alert
+            window.location.href = "/"; // Replace this URL with the desired destination URL
+        };
+    </script>
+</head>
+<body>
+<p>Redirecting you to the Home page</p>
+<p>If the redirection failed, please click <a href="/">HERE</a> to go back to the Home Page</p>
+</body>
+</html>

@@ -1,0 +1,127 @@
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Home</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+
+    <style>
+        .VolunteerPage {
+            font-weight: normal;
+            font-size: medium;
+            margin-top: 0.4rem;
+        }
+
+        .badge {
+            margin-top: 1rem;
+        }
+
+    </style>
+
+</head>
+
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/event">Events</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link  active" href="/become/volunteer">Become volunteer</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-6 ms-5">
+          <span class="badge text-bg-light">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item VolunteerPage"><a href="/">Home</a></li>
+                        <li class="breadcrumb-item VolunteerPage active" aria-current="page">Become volunteer</li>
+                    </ol>
+                </nav>
+            </span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6 ms-5">
+
+
+            <form action="/becoming" method="post" id="Regist">
+                <div class="my-4">
+                    <label for="Email" class="form-label">Email</label>
+                    <input type="email" class="form-control" name="Email" id="Email" required>
+                </div>
+                <div class="mb-4">
+                    <label for="Password" class="form-label">Password</label>
+                    <input type="password" class="form-control" name="Password" id="Password" required>
+                </div>
+                <div class="mb-4">
+                    <label for="Name" class="form-label">Name</label>
+                    <input type="text" class="form-control" id="Name" name="Name" required>
+                </div>
+                <div class="mb-4">
+                    <label for="Contact" class="form-label">Contact</label>
+                    <input type="text" class="form-control" id="Contact" name="Contact">
+                </div>
+                <div class="mb-4">
+                    <label for="age">Age group</label>
+                    <select class="form-select" name="Age" id="age">
+                        <option value="not selected" selected>Dropdown...</option>
+                        <option value="18-24">18-24</option>
+                        <option value="25-34">25-34</option>
+                        <option value="35-45">35-45</option>
+                        <option value="Over 45">Over 45</option>
+                    </select>
+                </div>
+                <div class="mb-4">
+                    <label for="exampleFormControlTextarea1" class="form-label">About me and remark</label>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="remark"></textarea>
+                </div>
+                <div class="mb-4">
+                    <input type="checkbox" class="form-check-input" id="agree" name="terms">
+                    <label class="form-check-label Checkbox" for="agree">agree to terms and conditions</label>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Register</button>
+            </form>
+        </div>
+
+        <div class="col-5">
+            <div class="card" style="width: 35rem;height: 30rem;">
+                <img src="https://picsum.photos/1920/1080" class="card-img-top" alt="">
+                <!-- <div class="card-img-overlay">
+                        <p class="card-text">Image cap</p>
+                    </div> -->
+                <div class="card-body">
+                    <h5 class="card-title"><strong>Become a volunteer!</strong></h5>
+                    <p class="card-text">You time and talent can make a real different in people's life.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js"></script>
+<script>
+    document.getElementById("Regist").onsubmit = function (event) {
+        let checkbox = document.getElementById("agree");
+        if (!checkbox.checked) {
+            alert("Please agree to the terms and conditions.");
+            event.preventDefault(); // Prevent form submission
+        }
+    };
+</script>

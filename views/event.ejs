@@ -1,0 +1,243 @@
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Home</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+
+    <style>
+        .VolunteerPage {
+            font-weight: normal;
+            font-size: medium;
+            margin-top: 0.4rem;
+        }
+
+        .badge {
+            margin-top: 1rem;
+        }
+
+        .New {
+            margin-top: 1rem;
+        }
+
+        .HomeImage2 {
+            height: 15rem;
+            object-fit: fill;
+        }
+
+        .edit {
+            position: absolute;
+            bottom: 1rem;
+            right: 1rem;
+        }
+    </style>
+
+</head>
+
+<body>
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                aria-expanded="false"
+                aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="/event">Events</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/become/volunteer">Become volunteer</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container-fluid">
+    <div class="col-11 ms-4">
+            <span class="badge text-bg-light event">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item VolunteerPage"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item VolunteerPage active" aria-current="page">Event</li>
+                    </ol>
+                </nav>
+            </span>
+        <a class="btn btn-primary New" href="/event/new" role="button" style="float: right;">New</a>
+
+        <%- displayImage(events_one, 0, 3) %>
+        <%- displayImage(events_one, 3, 6) %>
+        <nav aria-label="Page navigation">
+            <ul class="pagination pagination-lg event">
+                <% if(total <= 30){ %>
+                    <% for (let i = 1; i <= Math.ceil(total / 6); i++) { %>
+                        <% if (i === page){ %>
+                            <li class="page-item active my-3"><a class="page-link" href="/event?page=<%= i %>">
+                                    <%= i %>
+                                </a></li>
+                        <% } else { %>
+                            <li class="page-item my-3"><a class="page-link" href="/event?page=<%= i %>">
+                                    <%= i %>
+                                </a></li>
+                        <% } %>
+                    <% } %>
+
+                <% }else{ %>
+                    <% if(page > 2){ %>
+                        <li class="page-item my-3"><a class="page-link" href="/bookings/paginate?page=1">
+                                1
+                            </a></li>
+                        <button type="button" class="btn">...</button>
+                    <% } %>
+                    <% let end_point %>
+                    <% if (page + 2 < Math.ceil(total / 6) - 1){ %>
+                        <% end_point = page + 2 %>
+                    <% } else { %>
+                        <% end_point = Math.ceil(total / 6) %>
+                    <% } %>
+                    <% let start_point %>
+                    <% if (page - 1 === 0){ %>
+                        <% start_point = 1 %>
+                    <% } else { %>
+                        <% start_point = page - 1 %>
+                    <% } %>
+                    <% for (let i = start_point; i <= end_point; i++) { %>
+                        <% if (i === page){ %>
+                            <li class="page-item active my-3"><a class="page-link" href="/event?page=<%= i %>">
+                                    <%= i %>
+                                </a></li>
+                        <% }else { %>
+                            <li class="page-item my-3"><a class="page-link" href="/event?page=<%= i %>">
+                                    <%= i %>
+                                </a></li>
+                        <% } %>
+                    <% } %>
+                    <% if(page < Math.ceil(total / 6) - 3){ %>
+                        <button type="button" class="btn">...</button>
+                        <li class="page-item my-3"><a class="page-link" href="/event?page=<%= Math.ceil(total / 6) %>">
+                                <%= Math.ceil(total / 6) %>
+                            </a></li>
+                    <% } %>
+                <% } %>
+            </ul>
+        </nav>
+    </div>
+</div>
+</body>
+<% function displayImage(events, start, end) { %>
+    <% let
+            no_image = "https://www.marsons.co.in/images/no-event.jpg"
+    %>
+    <!-- show 3 event in a row -->
+    <div class="card-body my-2">
+        <div class="card-group">
+            <% for (let i = start;i < end;i++){ %>
+
+                <div class="card">
+                    <% if (events[i]) { %>
+                        <% if (events[i].Image === ""){ %>
+                            <a href="/event/detail/<%= events[i]._id %>"><img
+                                        src="https://t4.ftcdn.net/jpg/04/73/25/49/360_F_473254957_bxG9yf4ly7OBO5I0O5KABlN930GwaMQz.jpg"
+                                        class="card-img-top HomeImage2"
+                                        alt=""></a>
+                        <% } else{ %>
+                            <a href="/event/detail/<%= events[i]._id %>"><img src="<%= events[i].Image %>"
+                                                                              class="card-img-top HomeImage2"
+                                                                              alt=""></a>
+                        <% } %>
+
+                    <% } else { %>
+
+                        <img src="<%= no_image %>" class="card-img-top HomeImage2" alt="">
+
+                    <% } %>
+                    <div class="card-body">
+                        <% if (events[i]) { %>
+                            <h5 class="card-title"><strong><%= events[i].Title %></strong></h5>
+                            <% if (events[i].Description === ""){ %>
+                                <p class="card-text"><%= "No Description" %></p>
+                            <% } else { %>
+                                <p class="card-text"><%= events[i].Description %></p>
+                            <% } %>
+                            <% let interval = now_date - events[i].modifiedAt %>
+                            <% if(interval < 60 * 1000) { %>
+                                <p class="card-text"><small class="text-body-secondary">Last updated within a
+                                        mintue
+                                        <button
+                                                href="/event/edit/<%= events[i]._id %>"
+                                                class="btn btn-outline-primary col-3"
+                                                style="float:right">
+                                            Edit
+                                        </button>
+                                    </small></p>
+                            <% } else if (interval < 3600 * 1000) { %>
+                                <p class="card-text"><small
+                                            class="text-body-secondary">Last
+                                        updated <%= Math.floor(interval / 1000 / 60) %> minute(s) ago
+                                    </small></p>
+                                <a
+                                        href="/event/edit/<%= events[i]._id %>"
+                                        class="btn btn-outline-primary col-3 edit">
+                                    Edit
+                                </a>
+                            <% } else if (interval < 24 * 3600 * 1000) { %>
+                                <p class="card-text"><small
+                                            class="text-body-secondary">Last
+                                        updated <%= Math.floor(interval / 1000 / 3600) %> hour(s) ago
+                                    </small></p>
+                                <a
+                                        href="/event/edit/<%= events[i]._id %>"
+                                        class="btn btn-outline-primary col-3 edit">
+                                    Edit
+                                </a>
+                            <% } else { %>
+                                <p class="card-text"><small
+                                            class="text-body-secondary">Last
+                                        updated <%= Math.floor(interval / 1000 / 86400) %> day(s) ago
+                                    </small></p>
+                                <a
+                                        href="/event/edit/<%= events[i]._id %>"
+                                        class="btn btn-outline-primary col-3 edit">
+                                    Edit
+                                </a>
+                            <% } %>
+
+                        <% } else { %>
+                            <h5 class="card-title"><strong>No Title</strong></h5>
+                            <p class="card-text">No Description.</p>
+                            <p class="card-text"><small class="text-body-secondary">No update information
+                                </small>
+                            </p>
+                            <a
+                                    href="/event/" class="btn btn-outline-primary col-3 edit">
+                                Edit
+                            </a>
+
+                        <% } %>
+                    </div>
+                </div>
+
+            <% } %>
+        </div>
+    </div>
+
+<% } %>
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js"></script>
+<script>
+    document.getElementById("Regist").onsubmit = function (event) {
+        var checkbox = document.getElementById("agree");
+        if (!checkbox.checked) {
+            alert("Please agree to the terms and conditions.");
+            event.preventDefault(); // Prevent form submission
+        }
+    };
+</script>

@@ -114,8 +114,7 @@
         document.getElementById("location").value = "<%= information.Location %>";
         document.getElementById("quota").value = "<%= information.Quota %>";
         document.getElementById("image").value = "<%= information.Image %>";
-        document.getElementById("Highlight").checked = "<%= information.Highlight %>";
-
+        document.getElementById("Highlight").checked = information.Highlight;
     });
 </script>
 </body>

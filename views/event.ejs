@@ -65,7 +65,7 @@
             <span class="badge text-bg-light event">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item VolunteerPage"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item VolunteerPage"><a href="/">Home</a></li>
                         <li class="breadcrumb-item VolunteerPage active" aria-current="page">Event</li>
                     </ol>
                 </nav>
@@ -170,13 +170,12 @@
                             <% if(interval < 60 * 1000) { %>
                                 <p class="card-text"><small class="text-body-secondary">Last updated within a
                                         mintue
-                                        <button
-                                                href="/event/edit/<%= events[i]._id %>"
-                                                class="btn btn-outline-primary col-3"
-                                                style="float:right">
-                                            Edit
-                                        </button>
                                     </small></p>
+                                <a
+                                        href="/event/edit/<%= events[i]._id %>"
+                                        class="btn btn-outline-primary col-3 edit">
+                                    Edit
+                                </a>
                             <% } else if (interval < 3600 * 1000) { %>
                                 <p class="card-text"><small
                                             class="text-body-secondary">Last

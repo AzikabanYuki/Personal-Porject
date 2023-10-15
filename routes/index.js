@@ -37,7 +37,6 @@ router.get('/', async function (req, res) {
 
     result.sort(compareNumbers);
     result2.sort(compareNumbers2);
-    console.log(result2[1].Title);
     res.render('home', {events: result, now_date: new Date(), highlight: result2});
 });
 

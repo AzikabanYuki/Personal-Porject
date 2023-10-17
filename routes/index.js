@@ -13,10 +13,10 @@ router.get('/', async function (req, res) {
         let Timea = a.modifiedAt;
         let Timeb = b.modifiedAt;
         if (Timea < Timeb) {
-            return -1;
+            return 1;
         }
         if (Timea > Timeb) {
-            return 1;
+            return -1;
         }
         // names must be equal
         return 0;

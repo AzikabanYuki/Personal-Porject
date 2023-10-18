@@ -143,16 +143,16 @@
                             <a href="/event/detail/<%= events[i]._id %>"><img
                                         src="https://t4.ftcdn.net/jpg/04/73/25/49/360_F_473254957_bxG9yf4ly7OBO5I0O5KABlN930GwaMQz.jpg"
                                         class="card-img-top HomeImage2"
-                                        alt=""></a>
+                                        alt="Can not display image"></a>
                         <% } else{ %>
                             <a href="/event/detail/<%= events[i]._id %>"><img src="<%= events[i].Image %>"
                                                                               class="card-img-top HomeImage2"
-                                                                              alt=""></a>
+                                                                              alt="Can not display image"></a>
                         <% } %>
 
                     <% } else { %>
 
-                        <img src="<%= no_image %>" class="card-img-top HomeImage2" alt="">
+                        <img src="<%= no_image %>" class="card-img-top HomeImage2" alt="Can not display image">
 
                     <% } %>
                     <div class="card-body">

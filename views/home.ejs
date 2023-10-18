@@ -74,12 +74,12 @@
                         <% if (highlight[i]) { %>
                             <% if (highlight[i].Image === "") { %>
                                 <img src="https://t4.ftcdn.net/jpg/04/73/25/49/360_F_473254957_bxG9yf4ly7OBO5I0O5KABlN930GwaMQz.jpg"
-                                     class="d-block w-100" alt="">
+                                     class="d-block w-100" alt="Can not display image">
                             <% }else { %>
-                                <img src="<%= highlight[i].Image %>" class="d-block w-100" alt="">
+                                <img src="<%= highlight[i].Image %>" class="d-block w-100" alt="Can not display image">
                             <% } %>
                         <% }
-                        else { %><img src="<%= no_image %>" class="d-block w-100" alt="">
+                        else { %><img src="<%= no_image %>" class="d-block w-100" alt="Can not display image">
                         <% } %>
                     </div>
                     <% } %>
@@ -110,13 +110,13 @@
                             <% if (events[i]) { %>
                                 <% if (events[i].Image === ""){ %>
                                     <img src="https://t4.ftcdn.net/jpg/04/73/25/49/360_F_473254957_bxG9yf4ly7OBO5I0O5KABlN930GwaMQz.jpg"
-                                         class="card-img-top HomeImage2" alt="">
+                                         class="card-img-top HomeImage2" alt="Can not display image">
                                 <% } else { %>
                                     <img src="<%= events[i].Image %>"
-                                         class="card-img-top HomeImage2" alt="">
+                                         class="card-img-top HomeImage2" alt="Can not display image">
                                 <% } %>
 
-                            <% } else { %><img src="<%= no_image %>" class="card-img-top HomeImage2" alt="">
+                            <% } else { %><img src="<%= no_image %>" class="card-img-top HomeImage2" alt="Can not display image">
                             <% } %>
                             <div class="card-body">
                                 <% if (events[i]) { %>
